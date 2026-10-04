@@ -2,300 +2,554 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>C3 New Commission Payouts 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Commission Payouts 2026 · C³</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#07060B">
+<meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#241A3D; --muted:#7A7397; --line:#E6E2F2;
-  --purple:#4A1FD9; --purple-soft:#6138F5; --violet:#7C3AED;
-  --blue:#2563EB; --amber:#B4690E; --amber-soft:#F4A300; --teal:#0E8C95; --red:#C42A57;
-  --green:#0B8457; --green-bright:#0EA968;
-  --card:#FFFFFF; --tint:#F6F4FD;
+  --bg:#07060B;
+  --surface:#110F18;
+  --surface-hi:#17141F;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.055);
+  --text:#F6F5FB;
+  --text-2:rgba(246,245,251,.76);
+  --muted:rgba(246,245,251,.56);
+  --faint:rgba(246,245,251,.44);
+  --accent:#7C5CFF;
+  --accent-hi:#B6A6FF;
+  --accent-ink:#CFC5FF;
+  --mint:#6EE7B7;
+  --sans:'Geist',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --serif:'Instrument Serif',ui-serif,Georgia,serif;
+  --r:20px;
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-html{overflow-x:hidden;}
-body{
-  font-family:'DM Sans',system-ui,sans-serif; color:var(--ink);
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 15px/1.45 var(--sans);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;overflow-x:hidden}
+h1,h2,h3,p{margin:0}
+.num{font-variant-numeric:tabular-nums lining-nums;text-align:right;white-space:nowrap}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* ─────────── Atmosphere ─────────── */
+.sky{position:absolute;inset:0 0 auto 0;height:1100px;pointer-events:none;z-index:0;overflow:hidden}
+.sky::before{content:"";position:absolute;left:50%;top:-420px;width:1500px;height:1000px;transform:translateX(-50%);
   background:
-    radial-gradient(800px 460px at 8% -10%, #E9E2FF 0%, transparent 60%),
-    radial-gradient(760px 460px at 100% 0%, #E3F6F2 0%, transparent 58%),
-    linear-gradient(180deg,#F1EEFB 0%, #EDEAF7 100%);
-  display:block; padding:22px 0 108px; overflow-x:hidden;
-  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    radial-gradient(closest-side at 62% 45%,rgba(124,92,255,.42),rgba(124,92,255,0) 70%),
+    radial-gradient(closest-side at 28% 55%,rgba(56,120,255,.20),rgba(56,120,255,0) 70%);}
+.sky::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:64px 64px;background-position:center -1px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 18%,#000 0%,transparent 75%);
+          mask-image:radial-gradient(ellipse 70% 55% at 50% 18%,#000 0%,transparent 75%)}
+main,.mast,.bar,.foot-wrap{position:relative;z-index:1}
+
+/* ─────────── Masthead ─────────── */
+.mast{padding:30px 0 8px}
+.mast-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.brand img{width:46px;height:46px;border-radius:13px;object-fit:cover;
+  box-shadow:0 0 0 1px rgba(255,255,255,.16),0 10px 30px -6px rgba(124,92,255,.55)}
+.brand-t{display:flex;flex-direction:column;line-height:1.2}
+.brand-t b{font-weight:600;font-size:14px;letter-spacing:-.005em}
+.brand-t span{font-size:12.5px;color:var(--muted)}
+.eff{flex:none;font-size:12.5px;font-weight:500;color:var(--text-2);background:rgba(255,255,255,.04);
+  border:1px solid var(--line);border-radius:999px;padding:7px 13px;white-space:nowrap}
+.eff i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint);margin-right:8px;
+  vertical-align:0;box-shadow:0 0 0 3px rgba(110,231,183,.15),0 0 12px rgba(110,231,183,.7)}
+
+.kicker{margin-top:56px;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--accent-hi)}
+.kicker::before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
+.title{margin-top:16px;font-weight:700;font-size:clamp(46px,9.6vw,112px);line-height:.92;letter-spacing:-.045em}
+.title em{display:inline-block;font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.015em;
+  padding-right:.06em;
+  background:linear-gradient(100deg,#FFFFFF 0%,#D9D0FF 38%,#9B84FF 78%,#7C5CFF 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{margin-top:20px;max-width:46ch;font-size:17px;line-height:1.5;color:var(--text-2)}
+
+/* hero figures */
+.stats{margin-top:44px;display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:12px}
+.stat{position:relative;border-radius:18px;padding:20px 20px 18px;background:rgba(255,255,255,.035);
+  border:1px solid var(--line);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.stat.lead{background:
+    radial-gradient(120% 140% at 100% 0%,rgba(124,92,255,.45),rgba(124,92,255,0) 60%),
+    linear-gradient(160deg,#1B1530,#110E1C);
+  border-color:rgba(182,166,255,.32);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 24px 60px -24px rgba(124,92,255,.6)}
+.stat-k{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stat.lead .stat-k{color:var(--accent-ink)}
+.stat-v{margin-top:14px;font-size:clamp(30px,3.4vw,40px);font-weight:700;letter-spacing:-.04em;line-height:1;
+  font-variant-numeric:tabular-nums}
+.stat.lead .stat-v{font-size:clamp(38px,4.6vw,56px)}
+.stat-s{margin-top:8px;font-size:13px;color:var(--text-2)}
+
+/* ─────────── Toolbar ─────────── */
+.bar{position:sticky;top:0;z-index:20;margin-top:36px;background:rgba(7,6,11,.9);
+  border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding-top:12px;padding-bottom:12px}
+.search{position:relative;flex:0 0 280px}
+.search svg{position:absolute;left:14px;top:50%;width:16px;height:16px;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.search input{width:100%;height:44px;border:1px solid var(--line);border-radius:12px;background:var(--surface);
+  padding:0 14px 0 40px;font:500 15px var(--sans);color:var(--text);outline:none;
+  transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.search input::placeholder{color:var(--faint)}
+.search input:focus{border-color:rgba(182,166,255,.55);box-shadow:0 0 0 4px rgba(124,92,255,.2)}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  -webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;height:36px;display:inline-flex;align-items:center;padding:0 15px;border-radius:999px;
+  font-size:13.5px;font-weight:500;color:var(--text-2);text-decoration:none;
+  background:rgba(255,255,255,.03);border:1px solid var(--line);transition:background .2s,color .2s,border-color .2s}
+.chip:hover{background:rgba(255,255,255,.08);color:var(--text);border-color:rgba(255,255,255,.14)}
+.chip:last-child{margin-right:32px}
+.chip.pr{display:none;gap:7px;font:inherit;font-size:13.5px;font-weight:600;color:#0B0A10;background:#fff;border-color:#fff;cursor:pointer}
+.chip.pr svg{width:15px;height:15px}
+
+/* ─────────── Section label ─────────── */
+.label{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:56px 0 20px}
+.label h2{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.05}
+.label h2 span{display:block;margin-bottom:10px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-hi)}
+.label p{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;white-space:nowrap}
+
+/* ─────────── Rate cards ─────────── */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.card{position:relative;border-radius:var(--r);background:linear-gradient(180deg,var(--surface-hi),var(--surface) 140px);
+  border:1px solid var(--line);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 30px 60px -32px rgba(0,0,0,.8);
+  scroll-margin-top:90px;overflow:hidden}
+.card::before{content:"";position:absolute;left:24px;right:24px;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(182,166,255,.55),transparent)}
+.card-h{display:flex;align-items:center;gap:14px;padding:20px 20px 16px}
+.card-ico{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;color:var(--accent-ink);
+  border:1px solid transparent;
+  background:linear-gradient(160deg,#1F1A2E,#14111D) padding-box,
+             linear-gradient(150deg,rgba(182,166,255,.65),rgba(255,255,255,.06) 60%) border-box;
+  box-shadow:0 8px 24px -10px rgba(124,92,255,.6)}
+.ico{width:21px;height:21px}
+.card-tt{min-width:0}
+.card-t{font-size:18px;font-weight:650;font-weight:600;letter-spacing:-.02em;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-n{margin-top:3px;font-size:12.5px;color:var(--muted)}
+.card-max{margin-left:auto;text-align:right;line-height:1}
+.card-max small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.card-max b{display:block;margin-top:5px;font-size:22px;font-weight:700;letter-spacing:-.03em;color:var(--text);font-variant-numeric:tabular-nums}
+
+.tbl{width:100%;border-collapse:collapse;table-layout:fixed}
+.tbl thead th{padding:9px 20px;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);text-align:left;background:rgba(255,255,255,.025);
+  border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.tbl thead th.num{text-align:right}
+.tbl thead th:nth-child(2){width:76px;padding-left:0;padding-right:0}
+.tbl thead th:nth-child(3){width:100px}
+.tbl tbody th,.tbl td{padding:0 20px;height:46px;border-bottom:1px solid var(--line-2);vertical-align:middle;transition:background .15s}
+.tbl tbody tr:last-child th,.tbl tbody tr:last-child td{border-bottom:0}
+.tbl tbody th{font-weight:500;font-size:15px;text-align:left;color:var(--text);letter-spacing:-.01em;
+  line-height:1.2;padding-top:8px!important;padding-bottom:8px!important}
+.tbl td.gp{padding-left:0;padding-right:0;font-size:14px;color:var(--muted)}
+.tbl td.earn{font-size:18px;font-weight:700;letter-spacing:-.025em;color:var(--text)}
+.tbl tbody tr:hover th,.tbl tbody tr:hover td{background:rgba(255,255,255,.03)}
+.tbl tbody tr.feat th,.tbl tbody tr.feat td{background:rgba(124,92,255,.13)}
+.tbl tbody tr.feat th{box-shadow:inset 3px 0 0 var(--accent)}
+.tbl tbody tr.feat td.earn{color:var(--accent-ink)}
+.star{display:inline-block;width:12px;height:12px;margin:0 8px 0 0;vertical-align:-1px;color:var(--accent-hi)}
+.card-note{margin:0;padding:13px 20px 16px;border-top:1px solid var(--line-2);font-size:13px;color:var(--muted);background:rgba(255,255,255,.02)}
+.card-note b{font-weight:600;color:var(--text-2);margin-right:6px}
+
+/* ─────────── Bonuses ─────────── */
+.ladder{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:end}
+.bonus{position:relative;border-radius:var(--r);padding:22px 22px 20px;background:var(--surface);border:1px solid var(--line);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);display:flex;flex-direction:column;overflow:hidden}
+.bonus:nth-child(1){min-height:200px}
+.bonus:nth-child(2){min-height:222px;background:linear-gradient(170deg,#191428,var(--surface) 70%)}
+.bonus:nth-child(3){min-height:246px;border-color:rgba(182,166,255,.4);
+  background:radial-gradient(130% 120% at 100% 0%,rgba(124,92,255,.6),rgba(124,92,255,0) 55%),linear-gradient(165deg,#2A1F57,#141022 75%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 30px 70px -28px rgba(124,92,255,.7)}
+.bonus-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.bonus-t{font-size:17px;font-weight:600;letter-spacing:-.02em}
+.tag{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px 9px}
+.pips{display:flex;gap:5px;margin-top:12px}
+.pips i{width:22px;height:5px;border-radius:3px;background:rgba(255,255,255,.1)}
+.pips i.on{background:linear-gradient(90deg,var(--accent),var(--accent-hi));box-shadow:0 0 10px rgba(124,92,255,.6)}
+.bonus-v{margin-top:auto;padding-top:28px;font-size:clamp(40px,4.6vw,56px);font-weight:700;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.bonus-b{margin-top:10px;display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bonus:nth-child(3) .bonus-b{color:var(--text-2)}
+
+/* ─────────── Accessories ─────────── */
+.accy{margin-top:16px;position:relative;overflow:hidden;border-radius:var(--r);border:1px solid var(--line);
+  background:radial-gradient(90% 180% at 100% 50%,rgba(124,92,255,.35),rgba(124,92,255,0) 60%),var(--surface);
+  display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 28px}
+.accy-k{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-hi)}
+.accy-t{margin-top:8px;font-size:clamp(20px,2.4vw,26px);font-weight:700;letter-spacing:-.03em;line-height:1.15}
+.accy-s{margin-top:6px;font-size:14px;color:var(--muted)}
+.accy-r{display:flex;align-items:baseline;gap:12px;flex:none}
+.accy-v{font-size:clamp(64px,8vw,104px);font-weight:800;letter-spacing:-.06em;line-height:.85;
+  background:linear-gradient(180deg,#FFFFFF 10%,#B6A6FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.accy-o{font-size:13px;color:var(--text-2);max-width:9ch;line-height:1.3}
+
+/* ─────────── Footer ─────────── */
+.foot{margin:64px 0 0;padding:26px 0 130px;border-top:1px solid var(--line);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.legend{display:grid;gap:8px;font-size:13px;color:var(--muted)}
+.legend b{font-weight:600;color:var(--text)}
+.sign{font-family:var(--serif);font-style:italic;font-size:34px;line-height:1;white-space:nowrap;
+  background:linear-gradient(100deg,#fff,#B6A6FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sign small{display:block;margin-top:8px;font-family:var(--sans);font-style:normal;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint);-webkit-text-fill-color:var(--faint);text-align:right}
+
+.empty{display:none;padding:48px 0 8px;text-align:center;color:var(--muted);font-size:15px}
+.empty.on{display:block}
+
+/* ─────────── Print button ─────────── */
+.print{position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom));z-index:30;
+  display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 22px 0 19px;border:0;border-radius:999px;
+  background:#fff;color:#0B0A10;font:600 14.5px var(--sans);letter-spacing:-.01em;cursor:pointer;
+  box-shadow:0 14px 40px -8px rgba(124,92,255,.55),0 2px 8px rgba(0,0,0,.5);transition:transform .2s var(--ease),box-shadow .2s}
+.print:hover{transform:translateY(-2px);box-shadow:0 18px 48px -8px rgba(124,92,255,.7),0 2px 8px rgba(0,0,0,.5)}
+.print svg{width:18px;height:18px}
+.print:focus-visible,.chip:focus-visible{outline:2px solid var(--accent-hi);outline-offset:3px}
+
+/* ─────────── Entrance ─────────── */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.rise{animation:rise .8s var(--ease) both;animation-delay:calc(var(--i,0) * 70ms)}
+
+/* ─────────── Responsive ─────────── */
+@media (max-width:1020px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats{grid-template-columns:repeat(2,1fr)}
 }
-.page{
-  width:8.5in; min-height:11in; background:#fff; margin:0;
-  border:1px solid var(--line); border-radius:16px;
-  padding:0.42in 0.46in 0.34in; box-shadow:0 22px 60px rgba(74,31,217,.16);
-  display:flex; flex-direction:column;
-  transform-origin:top left;  /* JS scales + centers this to fit the screen */
+@media (max-width:760px){
+  .ladder{grid-template-columns:1fr}
+  .bonus:nth-child(n){min-height:0}
+  .bonus-v{padding-top:22px}
+  .bar .wrap{flex-direction:column;align-items:stretch;gap:10px;padding-top:12px;padding-bottom:10px}
+  .search{flex:none}
+  .chips{margin:0 -24px;padding:0 24px}
+  .card,#bonuses{scroll-margin-top:130px}
 }
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .chips{margin:0 -16px;padding:0 16px}
+  .grid{grid-template-columns:1fr;gap:14px}
+  .mast{padding-top:20px}
+  .brand img{width:40px;height:40px;border-radius:11px}
+  .eff{font-size:11.5px;padding:6px 10px}
+  .kicker{margin-top:40px;font-size:11px}
+  .lede{font-size:15.5px}
+  .stats{margin-top:28px;gap:8px;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stat{padding:13px 12px 12px;border-radius:14px}
+  .stat.lead{grid-column:1/-1;padding:18px}
+  .stat-k{font-size:10px;letter-spacing:.08em}
+  .stat-v{margin-top:8px;font-size:22px;letter-spacing:-.035em}
+  .stat.lead .stat-v{font-size:46px;margin-top:10px}
+  .stat-s{font-size:11.5px;margin-top:6px}
+  .kicker{margin-top:32px}
+  .label{margin:44px 0 16px;flex-wrap:wrap}
+  .card-h{padding:18px 16px 14px;gap:12px}
+  .card-ico{width:40px;height:40px}
+  .card-max b{font-size:20px}
+  .tbl thead th{padding:8px 16px}
+  .tbl tbody th,.tbl td{padding:0 16px;height:48px}
+  .tbl thead th:nth-child(2),.tbl td.gp{padding:0}
+  .tbl thead th:nth-child(3){width:88px}
+  .accy{flex-direction:column;align-items:flex-start;padding:22px 20px}
+  .foot{flex-direction:column;gap:20px}
+  .sign small{text-align:left}
+  .print{display:none}
+  .chip.pr{display:inline-flex}
+}
+@media (max-width:370px){.brand-t span{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rise{animation:none}*{transition:none!important}}
 
-/* ---------- PRINT BUTTON BAR (screen only) ---------- */
-.printbar{position:fixed;left:0;right:0;bottom:0;z-index:50;
-  display:flex;justify-content:center;gap:10px;
-  padding:14px 16px calc(14px + env(safe-area-inset-bottom));
-  background:linear-gradient(180deg, rgba(241,238,251,0) 0%, rgba(241,238,251,.85) 40%, rgba(241,238,251,.97) 100%);}
-.printbtn{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;
-  color:#fff;border:none;cursor:pointer;border-radius:999px;
-  padding:13px 28px;display:inline-flex;align-items:center;gap:9px;
-  background:linear-gradient(120deg,var(--purple-soft),var(--violet));
-  box-shadow:0 8px 22px rgba(97,56,245,.45);transition:transform .12s ease, box-shadow .12s ease;}
-.printbtn:hover{transform:translateY(-1px);box-shadow:0 11px 26px rgba(97,56,245,.55);}
-.printbtn:active{transform:translateY(0);}
-.printbtn .ico{font-size:17px;line-height:1;}
-
-/* ---------- HERO ---------- */
-.hero{display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px;
-  background:linear-gradient(120deg,#F3EFFF 0%, #EFEBFF 50%, #EAFBF5 100%);
-  border:1px solid var(--line); border-radius:14px; padding:15px 16px 16px;}
-.logo{width:58px;height:58px;border-radius:13px;object-fit:cover;
-  box-shadow:0 0 0 2px #fff, 0 0 0 4px rgba(97,56,245,.45);}
-.hero-txt{flex:none;}
-.badge{display:inline-block;font-family:'Space Grotesk';font-weight:700;font-size:9px;
-  letter-spacing:.13em; text-transform:uppercase; color:var(--purple);
-  background:#fff; border:1px solid #D7CCFB; padding:3px 9px; border-radius:999px; margin-bottom:5px;}
-h1{font-family:'Space Grotesk';font-weight:700;font-size:29px;line-height:.98;letter-spacing:-.01em;color:var(--ink);}
-h1 .grad{color:var(--purple);}
-.subhead{color:var(--muted);font-size:11px;font-weight:600;margin-top:3px;}
-
-.rule{height:3px;border-radius:3px;margin:13px 0 13px;
-  background:linear-gradient(90deg,var(--purple),var(--violet) 35%,var(--green-bright) 70%,var(--amber-soft));}
-
-/* ---------- GRID (aligned) ---------- */
-.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; align-items:stretch;}
-.card{display:flex; flex-direction:column;
-  background:var(--card); border:1px solid var(--line); border-radius:12px;
-  overflow:hidden;}
-.chead{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px 7px;min-height:38px;
-  border-top:3px solid var(--purple); background:var(--tint); border-bottom:1px solid var(--line);}
-.acc-blue .chead{border-top-color:var(--blue);}
-.acc-violet .chead{border-top-color:var(--violet);}
-.acc-amber .chead{border-top-color:var(--amber-soft);}
-.acc-green .chead{border-top-color:var(--green-bright);}
-.acc-teal .chead{border-top-color:var(--teal);}
-.acc-red .chead{border-top-color:var(--red);}
-.cicon{font-size:14px;}
-.ctitle{font-family:'Space Grotesk';font-weight:700;font-size:12.5px;line-height:1.05;white-space:nowrap;}
-.ctag{margin-left:auto;font-size:7.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;}
-.colhead{display:grid;grid-template-columns:1fr 38px 48px;gap:5px;padding:5px 8px 4px;
-  font-size:7px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700;}
-.colhead span:nth-child(2),.colhead span:nth-child(3){text-align:right;}
-.cbody{flex:1;padding:0 10px 4px;}
-.seclabel{font-family:'Space Grotesk';font-weight:700;font-size:8px;color:var(--violet);
-  text-transform:uppercase;letter-spacing:.09em;margin:6px 0 2px;}
-.row{display:grid;grid-template-columns:1fr 38px 48px;gap:5px;align-items:center;
-  padding:3.4px 5px;border-radius:5px;min-height:20px;}
-.row:nth-child(even){background:#FAF9FE;}
-.rname{font-size:9.6px;font-weight:600;color:var(--ink);line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.rgp{font-family:'JetBrains Mono';font-weight:700;font-size:9.5px;color:var(--amber);text-align:right;font-variant-numeric:tabular-nums;}
-.rname.sm{font-size:8.3px;letter-spacing:-.01em;}
-.rcomm{font-family:'JetBrains Mono';text-align:right;}
-.camt{font-family:'JetBrains Mono';font-weight:800;font-size:12.5px;color:var(--green);font-variant-numeric:tabular-nums;}
-.row.hot{background:#EAFBF2;}
-.row.hot:nth-child(even){background:#E2F8EC;}
-.cardfoot{font-size:7.5px;color:var(--muted);font-style:italic;padding:5px 10px 8px;}
-
-/* ---------- ACCESSORY COMP ---------- */
-.accy{margin-top:11px;display:flex;align-items:center;justify-content:space-between;gap:14px;
-  background:linear-gradient(120deg,#F3EFFF,#EAFBF3);
-  border:1px solid #D9CFF6;border-radius:11px;padding:9px 16px;}
-.accy-kicker{display:block;font-family:'Space Grotesk';font-weight:700;font-size:11px;
-  letter-spacing:.05em;text-transform:uppercase;color:var(--amber);}
-.accy-sub{display:block;font-size:8px;color:var(--muted);font-weight:600;margin-top:2px;}
-.accy-r{display:flex;align-items:baseline;gap:8px;}
-.accy-pct{font-family:'JetBrains Mono';font-size:22px;font-weight:800;color:var(--green);line-height:1;}
-.accy-of{font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);}
-
-/* ---------- BONUS BAND ---------- */
-.bonus-wrap{margin-top:14px;}
-.bonus-title{font-family:'Space Grotesk';font-weight:700;font-size:11px;letter-spacing:.05em;
-  text-transform:uppercase;color:var(--amber);margin-bottom:7px;display:flex;align-items:center;gap:7px;}
-.bonus-title::after{content:"";flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--amber-soft),transparent);}
-.bonus-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.bonus{display:flex;align-items:center;justify-content:space-between;
-  background:linear-gradient(120deg,#F3EFFF,#EAFBF3);
-  border:1px solid #D9CFF6;border-radius:11px;padding:10px 14px;}
-.bname{font-family:'Space Grotesk';font-weight:700;font-size:14px;color:var(--ink);}
-.bnote{font-size:7.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-top:2px;}
-.bvals{text-align:right;}
-.bgp{display:block;font-family:'JetBrains Mono';font-size:8.5px;color:var(--amber);font-weight:700;}
-.bcomm{font-family:'JetBrains Mono';font-size:20px;font-weight:800;color:var(--green);line-height:1;}
-
-/* ---------- FOOTER ---------- */
-.foot{margin-top:13px;display:flex;align-items:center;justify-content:space-between;
-  border-top:1px solid var(--line);padding-top:8px;}
-.foot .left{font-family:'Space Grotesk';font-weight:700;font-size:12px;color:var(--purple);}
-.foot .right{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700;}
-.legend{display:flex;gap:12px;font-size:7.5px;color:var(--muted);font-weight:600;}
-.legend b{color:var(--amber);} .legend i{color:var(--green);font-style:normal;} .legend s{color:var(--amber-soft);text-decoration:none;}
-
-/* ================= PRINT ================= */
-@page{ size:letter portrait; margin:0.4in; }
+/* ─────────── Print · one US Letter page, ink-friendly ─────────── */
+@page{size:letter portrait;margin:.42in .45in .38in}
 @media print{
-  html,body{overflow:visible;}
-  body{background:#fff;padding:0;display:block;}
-  .printbar{display:none !important;}
-  .page{width:auto;min-height:auto;border:none;border-radius:0;padding:0;box-shadow:none;margin:0;
-    transform:none !important;margin-bottom:0 !important;}
-  .card,.hero,.bonus{box-shadow:none;}
+  :root{--bg:#fff;--surface:#fff;--surface-hi:#fff;--line:#E2E0E8;--line-2:#ECEAF0;
+    --text:#111018;--text-2:#3A3945;--muted:#6E6D78;--faint:#8D8C96;--accent:#5B3FE0;--accent-hi:#5B3FE0;--accent-ink:#5B3FE0}
+  :root{color-scheme:light}
+  html,body{background:#fff!important}
+  body{font-size:10px}
+  .sky,.bar,.print,.empty,.lede{display:none!important}
+  .rise{animation:none!important}
+  .wrap{max-width:none;padding:0}
+  .mast{padding:0 0 12px;border-bottom:1.5px solid var(--text)}
+  .brand img{width:30px;height:30px;border-radius:8px;box-shadow:none}
+  .brand-t b{font-size:11px}.brand-t span{font-size:9px}
+  .eff{font-size:9px;padding:4px 9px;background:none}
+  .eff i{box-shadow:none;background:#22A06B}
+  .kicker{margin-top:14px;font-size:8px}
+  .title{margin-top:6px;font-size:40px}
+  .title em{background:none;color:var(--accent);-webkit-text-fill-color:var(--accent)}
+  .stats{margin-top:12px;gap:7px;grid-template-columns:1.25fr 1fr 1fr 1fr}
+  .stat,.stat.lead{padding:9px 11px;border-radius:9px;background:none;box-shadow:none;border:1px solid var(--line)}
+  .stat.lead{border-color:var(--accent)}
+  .stat-k{font-size:7.5px}
+  .stat-v,.stat.lead .stat-v{margin-top:5px;font-size:19px}
+  .stat.lead .stat-v{color:var(--accent)}
+  .stat-s{font-size:8.5px;margin-top:3px}
+  .label{margin:12px 0 7px}
+  .label h2{font-size:13px}
+  .label h2 span{display:none}
+  .label p{font-size:8.5px}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .card{background:#fff;box-shadow:none;border-radius:9px;break-inside:avoid}
+  .card::before{display:none}
+  .card-h{padding:8px 10px 6px;gap:8px}
+  .card-ico{width:22px;height:22px;border-radius:6px;background:#fff;border:1px solid var(--line);box-shadow:none}
+  .ico{width:13px;height:13px}
+  .card-t{font-size:10.5px}.card-n{font-size:8px;margin-top:1px}
+  .card-max small{font-size:6.5px}.card-max b{font-size:12px;margin-top:2px}
+  .tbl thead th{padding:4px 10px;font-size:6.8px;background:#F6F5F8}
+  .tbl thead th:nth-child(2){width:42px}
+  .tbl thead th:nth-child(3){width:54px}
+  .tbl tbody th,.tbl td{height:19.5px;padding:0 10px}
+  .tbl tbody th{font-size:9.3px;padding-top:3px!important;padding-bottom:3px!important;white-space:nowrap}
+  .tbl td.gp{font-size:8.8px}
+  .tbl td.earn{font-size:10.2px}
+  .tbl tbody tr.feat{background:#F3F0FF}
+  .tbl tbody tr.feat th,.tbl tbody tr.feat td{background:transparent}
+  .tbl tbody tr.feat th{box-shadow:inset 2px 0 0 var(--accent)}
+  .star{width:8px;height:8px;margin-right:5px}
+  .card-note{padding:5px 10px 7px;font-size:8px;background:none}
+  .ladder{gap:8px}
+  .bonus,.bonus:nth-child(n){min-height:0;padding:9px 11px;border-radius:9px;background:#fff;box-shadow:none;border:1px solid var(--line)}
+  .bonus:nth-child(3){border-color:var(--accent)}
+  .bonus-t{font-size:10.5px}
+  .tag{font-size:6.5px;padding:2px 6px;color:var(--accent);background:#F3F0FF;border-color:#DCD3FF}
+  .pips{margin-top:5px}.pips i{width:12px;height:3px;background:#E6E3EE}
+  .pips i.on{background:var(--accent);box-shadow:none}
+  .bonus-v{padding-top:6px;font-size:20px}
+  .bonus:nth-child(3) .bonus-v{color:var(--accent)}
+  .bonus-b,.bonus:nth-child(3) .bonus-b{margin-top:3px;font-size:8px;color:var(--muted)}
+  .accy{margin-top:8px;padding:10px 14px;border-radius:9px;background:#fff}
+  .accy-k{font-size:7px}.accy-t{margin-top:3px;font-size:12px}.accy-s{font-size:8.5px;margin-top:2px}
+  .accy-v{font-size:30px;background:none;color:var(--accent);-webkit-text-fill-color:var(--accent)}
+  .accy-o{font-size:8.5px}
+  .foot{margin-top:10px;padding:8px 0 0}
+  .legend{font-size:8.5px;gap:2px}
+  .sign{font-size:17px;background:none;color:var(--text);-webkit-text-fill-color:var(--text)}
+  .sign small{font-size:7px;margin-top:3px}
 }
 </style>
 </head>
 <body>
-<div class="page" id="poster">
-  <div class="hero">
-    <img class="logo" src="data:image/jpeg;base64,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" alt="C3 logo">
-    <div class="hero-txt">
-      <span class="badge">Cook County Cooks &mdash; C&sup3; &bull; Updated September 1, 2026</span>
-      <h1>New Commission <span class="grad">Payouts</span></h1>
-      <div class="subhead">Bigger GP. Bigger checks. Every product, every payout &mdash; on one page.</div>
+<div class="sky" aria-hidden="true"></div>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="mast-top rise">
+      <div class="brand">
+        <img src="https://cookcountycooks.com/brand/c3-logo.png" alt="Cook County Cooks C³ logo" width="46" height="46">
+        <div class="brand-t"><b>Cook County Cooks</b><span>C³ · Rep Compensation</span></div>
+      </div>
+      <div class="eff"><i></i>Effective Sept 1, 2026</div>
+    </div>
+    <p class="kicker rise" style="--i:1">2026 Pay Plan</p>
+    <h1 class="title rise" style="--i:2">Commission <em>Payouts</em></h1>
+    <p class="lede rise" style="--i:3">Every product and every payout on one page — what the store earns, and what you take home.</p>
+    <div class="stats">
+      <div class="stat lead rise" style="--i:4"><div class="stat-k">Top payout</div><div class="stat-v">$37.50</div><div class="stat-s">Home Security</div></div>
+      <div class="stat rise" style="--i:5"><div class="stat-k">Top mobile line</div><div class="stat-v">$23</div><div class="stat-s">Mobile Plus</div></div>
+      <div class="stat rise" style="--i:6"><div class="stat-k">Quad Play</div><div class="stat-v">+$10.50</div><div class="stat-s">4 lines of business</div></div>
+      <div class="stat rise" style="--i:7"><div class="stat-k">Accessories</div><div class="stat-v">20%</div><div class="stat-s">of accessory MSRP</div></div>
     </div>
   </div>
+</header>
 
-  <div class="rule"></div>
-
-  <div class="grid">
-<section class="card acc-blue">
-  <header class="chead"><span class="cicon">🌐</span><span class="ctitle">Internet</span></header>
-  <div class="colhead"><span>Product</span><span>GP</span><span>Comm</span></div>
-  <div class="cbody">
-<div class="row hot"><div class="rname">2 Gig</div><div class="rgp">$200</div><div class="rcomm"><span class="camt">$15</span></div></div>
-<div class="row hot"><div class="rname">1.2 Gig</div><div class="rgp">$200</div><div class="rcomm"><span class="camt">$15</span></div></div>
-<div class="row"><div class="rname">Gig</div><div class="rgp">$180</div><div class="rcomm"><span class="camt">$11</span></div></div>
-<div class="row"><div class="rname">500 Mbps</div><div class="rgp">$155</div><div class="rcomm"><span class="camt">$6</span></div></div>
-<div class="row"><div class="rname">300 Mbps</div><div class="rgp">$110</div><div class="rcomm"><span class="camt">$5</span></div></div>
-<div class="row"><div class="rname">IE Plus</div><div class="rgp">$60</div><div class="rcomm"><span class="camt">$2</span></div></div>
-<div class="row"><div class="rname">IE</div><div class="rgp">$40</div><div class="rcomm"><span class="camt">$1</span></div></div>
-<div class="row"><div class="rname sm">Prepaid Internet Kit</div><div class="rgp">$40</div><div class="rcomm"><span class="camt">$4</span></div></div>
-<div class="row"><div class="rname">NOW 200</div><div class="rgp">$100</div><div class="rcomm"><span class="camt">$4</span></div></div>
-<div class="row"><div class="rname">NOW 100</div><div class="rgp">$70</div><div class="rcomm"><span class="camt">$2</span></div></div>
-  </div>
-  
-</section>
-<section class="card acc-violet">
-  <header class="chead"><span class="cicon">📱</span><span class="ctitle">Xfinity Mobile</span></header>
-  <div class="colhead"><span>Product</span><span>GP</span><span>Comm</span></div>
-  <div class="cbody">
-<div class="row hot"><div class="rname">Mobile Plus</div><div class="rgp">$185</div><div class="rcomm"><span class="camt">$23</span></div></div>
-<div class="row hot"><div class="rname">Premium</div><div class="rgp">$180</div><div class="rcomm"><span class="camt">$22</span></div></div>
-<div class="row hot"><div class="rname">Unlimited</div><div class="rgp">$140</div><div class="rcomm"><span class="camt">$12</span></div></div>
-<div class="row hot"><div class="rname">Mobile Select</div><div class="rgp">$140</div><div class="rcomm"><span class="camt">$12</span></div></div>
-<div class="row"><div class="rname">By the Gig</div><div class="rgp">$125</div><div class="rcomm"><span class="camt">$10</span></div></div>
-<div class="row"><div class="rname">NOW</div><div class="rgp">$75</div><div class="rcomm"><span class="camt">$10</span></div></div>
-<div class="row"><div class="rname">Tablets 1-2</div><div class="rgp">$100</div><div class="rcomm"><span class="camt">$11</span></div></div>
-<div class="row"><div class="rname">Watches 1-4</div><div class="rgp">$90</div><div class="rcomm"><span class="camt">$10</span></div></div>
-<div class="row"><div class="rname sm">XM BAPIS (per line)</div><div class="rgp">$50</div><div class="rcomm"><span class="camt">$5</span></div></div>
-  </div>
-  <div class="cardfoot">Tablets / watches sold over the MRC pay 50%.</div>
-</section>
-<section class="card acc-amber">
-  <header class="chead"><span class="cicon">📺</span><span class="ctitle">TV & Entertainment</span></header>
-  <div class="colhead"><span>Product</span><span>GP</span><span>Comm</span></div>
-  <div class="cbody">
-<div class="row hot"><div class="rname">TV Premium</div><div class="rgp">$145</div><div class="rcomm"><span class="camt">$15</span></div></div>
-<div class="row"><div class="rname">TV Plus</div><div class="rgp">$125</div><div class="rcomm"><span class="camt">$11</span></div></div>
-<div class="row"><div class="rname">Sports & News TV</div><div class="rgp">$110</div><div class="rcomm"><span class="camt">$7</span></div></div>
-<div class="row"><div class="rname sm">World Soccer Ticket</div><div class="rgp">$110</div><div class="rcomm"><span class="camt">$7</span></div></div>
-<div class="row"><div class="rname">TV Core</div><div class="rgp">$75</div><div class="rcomm"><span class="camt">$6</span></div></div>
-<div class="row"><div class="rname">NOW TV</div><div class="rgp">$25</div><div class="rcomm"><span class="camt">$3</span></div></div>
-<div class="row"><div class="rname">NOW Latino</div><div class="rgp">$15</div><div class="rcomm"><span class="camt">$1</span></div></div>
-  </div>
-  
-</section>
-<section class="card acc-green">
-  <header class="chead"><span class="cicon">➕</span><span class="ctitle">Add-Ons & Equipment</span></header>
-  <div class="colhead"><span>Product</span><span>GP</span><span>Comm</span></div>
-  <div class="cbody">
-<div class="row"><div class="rname">xPro</div><div class="rgp">$75</div><div class="rcomm"><span class="camt">$7</span></div></div>
-<div class="row"><div class="rname">Mobile Upgrade</div><div class="rgp">$85</div><div class="rcomm"><span class="camt">$5</span></div></div>
-<div class="row"><div class="rname">xFi Complete</div><div class="rgp">$30</div><div class="rcomm"><span class="camt">$1</span></div></div>
-<div class="row"><div class="rname">Xumo</div><div class="rgp">$15</div><div class="rcomm"><span class="camt">$1</span></div></div>
-<div class="row"><div class="rname">xCam</div><div class="rgp">$10</div><div class="rcomm"><span class="camt">$1</span></div></div>
-<div class="row"><div class="rname">WiFi Extenders</div><div class="rgp">$10</div><div class="rcomm"><span class="camt">$1</span></div></div>
-  </div>
-  
-</section>
-<section class="card acc-teal">
-  <header class="chead"><span class="cicon">🔐</span><span class="ctitle">Mobile Protection</span></header>
-  <div class="colhead"><span>Product</span><span>GP</span><span>Comm</span></div>
-  <div class="cbody">
-<div class="row"><div class="rname">XMC Tier 1 ($9)</div><div class="rgp">$18</div><div class="rcomm"><span class="camt">$3</span></div></div>
-<div class="row"><div class="rname">XMC Tier 2 ($15)</div><div class="rgp">$30</div><div class="rcomm"><span class="camt">$5</span></div></div>
-<div class="row"><div class="rname">XMC Tier 3 ($17)</div><div class="rgp">$34</div><div class="rcomm"><span class="camt">$6</span></div></div>
-<div class="row"><div class="rname">XMC Tier 4 ($19)</div><div class="rgp">$38</div><div class="rcomm"><span class="camt">$7</span></div></div>
-  </div>
-  
-</section>
-<section class="card acc-red">
-  <header class="chead"><span class="cicon">🏠</span><span class="ctitle">Home, Voice & More</span></header>
-  <div class="colhead"><span>Product</span><span>GP</span><span>Comm</span></div>
-  <div class="cbody">
-<div class="row hot"><div class="rname">Home Security</div><div class="rgp">$220</div><div class="rcomm"><span class="camt">$37.50</span></div></div>
-<div class="row"><div class="rname">Shield Select</div><div class="rgp">$65</div><div class="rcomm"><span class="camt">$6.50</span></div></div>
-<div class="row"><div class="rname sm">Digital Voice Premier</div><div class="rgp">$25</div><div class="rcomm"><span class="camt">$1.75</span></div></div>
-<div class="row"><div class="rname">Video Upgrade</div><div class="rgp">$50</div><div class="rcomm"><span class="camt">$2.50</span></div></div>
-<div class="row"><div class="rname">HSD Upgrade</div><div class="rgp">$40</div><div class="rcomm"><span class="camt">$2</span></div></div>
-  </div>
-  
-</section>
-  </div>
-
-  <div class="bonus-wrap">
-    <div class="bonus-title">Multi-Play Bonuses &mdash; Stack &rsquo;Em Up</div>
-    <div class="bonus-row">
-<div class="bonus"><div class="binfo"><div class="bname">Double Play</div><div class="bnote">2 lines of business</div></div><div class="bvals"><span class="bgp">GP $30</span><span class="bcomm">+$4.50</span></div></div>
-<div class="bonus"><div class="binfo"><div class="bname">Triple Play</div><div class="bnote">3 lines of business</div></div><div class="bvals"><span class="bgp">GP $50</span><span class="bcomm">+$7.50</span></div></div>
-<div class="bonus"><div class="binfo"><div class="bname">Quad Play</div><div class="bnote">4 lines of business</div></div><div class="bvals"><span class="bgp">GP $70</span><span class="bcomm">+$10.50</span></div></div>
+<nav class="bar" aria-label="Find a product">
+  <div class="wrap">
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+      <input id="q" type="search" placeholder="Search a product" autocomplete="off" aria-label="Search a product">
+    </label>
+    <div class="chips">
+<a class="chip" href="#internet">Internet</a>
+<a class="chip" href="#mobile">Mobile</a>
+<a class="chip" href="#tv">TV</a>
+<a class="chip" href="#addons">Add-Ons</a>
+<a class="chip" href="#protection">Protection</a>
+<a class="chip" href="#home">Home & Voice</a>
+<a class="chip" href="#bonuses">Bonuses</a>
+<button class="chip pr" type="button" onclick="window.print()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8.5V3.5h10v5"/><rect x="3.5" y="8.5" width="17" height="8.5" rx="2"/><path d="M7 14h10v6.5H7z"/></svg>Print</button>
     </div>
   </div>
+</nav>
 
-  <div class="accy">
-    <div class="accy-l"><span class="accy-kicker">Accessory Compensation</span><span class="accy-sub">Paid on every accessory you sell</span></div>
-    <div class="accy-r"><span class="accy-pct">20%</span><span class="accy-of">of accessory MSRP</span></div>
+<main class="wrap">
+  <div class="label">
+    <h2><span>The rate card</span>Product payouts</h2>
+    <p><svg class="star" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 .6l1.55 3.3 3.6.42-2.66 2.47.7 3.56L6 8.57 2.81 10.35l.7-3.56L.85 4.32l3.6-.42z"/></svg>Featured products</p>
   </div>
-
-  <div class="foot">
-    <div class="left">Now Go Cook.</div>
-    <div class="legend"><span><b>GP</b> = store gross profit (what the store earns)</span><span><i>Green</i> = your commission (what you earn)</span></div>
-    <div class="right">Built for the team &bull; Let&rsquo;s eat</div>
+  <div class="grid" id="grid">
+<section class="card rise" style="--i:0" id="internet" data-title="internet">
+<header class="card-h">
+<span class="card-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.2a14 14 0 0 1 19 0"/><path d="M5.6 12.6a9.5 9.5 0 0 1 12.8 0"/><path d="M8.8 15.9a5 5 0 0 1 6.4 0"/><circle cx="12" cy="19.2" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+<div class="card-tt"><h3 class="card-t">Internet</h3><p class="card-n">10 products</p></div>
+<div class="card-max"><small>Up to</small><b>$15</b></div>
+</header>
+<table class="tbl">
+<thead><tr><th scope="col">Product</th><th scope="col" class="num">Store GP</th><th scope="col" class="num">You earn</th></tr></thead>
+<tbody>
+<tr class="feat" data-q="2 gig"><th scope="row"><svg class="star" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 .6l1.55 3.3 3.6.42-2.66 2.47.7 3.56L6 8.57 2.81 10.35l.7-3.56L.85 4.32l3.6-.42z"/></svg><span class="pn">2 Gig</span></th><td class="num gp">$200</td><td class="num earn">$15</td></tr>
+<tr class="feat" data-q="1.2 gig"><th scope="row"><svg class="star" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 .6l1.55 3.3 3.6.42-2.66 2.47.7 3.56L6 8.57 2.81 10.35l.7-3.56L.85 4.32l3.6-.42z"/></svg><span class="pn">1.2 Gig</span></th><td class="num gp">$200</td><td class="num earn">$15</td></tr>
+<tr data-q="gig"><th scope="row"><span class="pn">Gig</span></th><td class="num gp">$180</td><td class="num earn">$11</td></tr>
+<tr data-q="500 mbps"><th scope="row"><span class="pn">500 Mbps</span></th><td class="num gp">$155</td><td class="num earn">$6</td></tr>
+<tr data-q="300 mbps"><th scope="row"><span class="pn">300 Mbps</span></th><td class="num gp">$110</td><td class="num earn">$5</td></tr>
+<tr data-q="ie plus"><th scope="row"><span class="pn">IE Plus</span></th><td class="num gp">$60</td><td class="num earn">$2</td></tr>
+<tr data-q="ie"><th scope="row"><span class="pn">IE</span></th><td class="num gp">$40</td><td class="num earn">$1</td></tr>
+<tr data-q="prepaid internet kit"><th scope="row"><span class="pn">Prepaid Internet Kit</span></th><td class="num gp">$40</td><td class="num earn">$4</td></tr>
+<tr data-q="now 200"><th scope="row"><span class="pn">NOW 200</span></th><td class="num gp">$100</td><td class="num earn">$4</td></tr>
+<tr data-q="now 100"><th scope="row"><span class="pn">NOW 100</span></th><td class="num gp">$70</td><td class="num earn">$2</td></tr>
+</tbody></table>
+</section>
+<section class="card rise" style="--i:1" id="mobile" data-title="xfinity mobile">
+<header class="card-h">
+<span class="card-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.6"/><path d="M10.5 18.6h3"/></svg></span>
+<div class="card-tt"><h3 class="card-t">Xfinity Mobile</h3><p class="card-n">9 products</p></div>
+<div class="card-max"><small>Up to</small><b>$23</b></div>
+</header>
+<table class="tbl">
+<thead><tr><th scope="col">Product</th><th scope="col" class="num">Store GP</th><th scope="col" class="num">You earn</th></tr></thead>
+<tbody>
+<tr class="feat" data-q="mobile plus"><th scope="row"><svg class="star" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 .6l1.55 3.3 3.6.42-2.66 2.47.7 3.56L6 8.57 2.81 10.35l.7-3.56L.85 4.32l3.6-.42z"/></svg><span class="pn">Mobile Plus</span></th><td class="num gp">$185</td><td class="num earn">$23</td></tr>
+<tr class="feat" data-q="premium"><th scope="row"><svg class="star" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 .6l1.55 3.3 3.6.42-2.66 2.47.7 3.56L6 8.57 2.81 10.35l.7-3.56L.85 4.32l3.6-.42z"/></svg><span class="pn">Premium</span></th><td class="num gp">$180</td><td class="num earn">$22</td></tr>
+<tr class="feat" data-q="unlimited"><th scope="row"><svg class="star" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 .6l1.55 3.3 3.6.42-2.66 2.47.7 3.56L6 8.57 2.81 10.35l.7-3.56L.85 4.32l3.6-.42z"/></svg><span class="pn">Unlimited</span></th><td class="num gp">$140</td><td class="num earn">$12</td></tr>
+<tr class="feat" data-q="mobile select"><th scope="row"><svg class="star" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 .6l1.55 3.3 3.6.42-2.66 2.47.7 3.56L6 8.57 2.81 10.35l.7-3.56L.85 4.32l3.6-.42z"/></svg><span class="pn">Mobile Select</span></th><td class="num gp">$140</td><td class="num earn">$12</td></tr>
+<tr data-q="by the gig"><th scope="row"><span class="pn">By the Gig</span></th><td class="num gp">$125</td><td class="num earn">$10</td></tr>
+<tr data-q="now"><th scope="row"><span class="pn">NOW</span></th><td class="num gp">$75</td><td class="num earn">$10</td></tr>
+<tr data-q="tablets 1–2"><th scope="row"><span class="pn">Tablets 1–2</span></th><td class="num gp">$100</td><td class="num earn">$11</td></tr>
+<tr data-q="watches 1–4"><th scope="row"><span class="pn">Watches 1–4</span></th><td class="num gp">$90</td><td class="num earn">$10</td></tr>
+<tr data-q="xm bapis (per line)"><th scope="row"><span class="pn">XM BAPIS (per line)</span></th><td class="num gp">$50</td><td class="num earn">$5</td></tr>
+</tbody></table>
+<p class="card-note"><b>Note</b>Tablets and watches sold over the MRC pay 50%.</p>
+</section>
+<section class="card rise" style="--i:2" id="tv" data-title="tv &amp; entertainment">
+<header class="card-h">
+<span class="card-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="12.5" rx="2.2"/><path d="M8.5 20.5h7"/><path d="M12 17v3.5"/></svg></span>
+<div class="card-tt"><h3 class="card-t">TV &amp; Entertainment</h3><p class="card-n">7 products</p></div>
+<div class="card-max"><small>Up to</small><b>$15</b></div>
+</header>
+<table class="tbl">
+<thead><tr><th scope="col">Product</th><th scope="col" class="num">Store GP</th><th scope="col" class="num">You earn</th></tr></thead>
+<tbody>
+<tr class="feat" data-q="tv premium"><th scope="row"><svg class="star" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 .6l1.55 3.3 3.6.42-2.66 2.47.7 3.56L6 8.57 2.81 10.35l.7-3.56L.85 4.32l3.6-.42z"/></svg><span class="pn">TV Premium</span></th><td class="num gp">$145</td><td class="num earn">$15</td></tr>
+<tr data-q="tv plus"><th scope="row"><span class="pn">TV Plus</span></th><td class="num gp">$125</td><td class="num earn">$11</td></tr>
+<tr data-q="sports &amp; news tv"><th scope="row"><span class="pn">Sports &amp; News TV</span></th><td class="num gp">$110</td><td class="num earn">$7</td></tr>
+<tr data-q="world soccer ticket"><th scope="row"><span class="pn">World Soccer Ticket</span></th><td class="num gp">$110</td><td class="num earn">$7</td></tr>
+<tr data-q="tv core"><th scope="row"><span class="pn">TV Core</span></th><td class="num gp">$75</td><td class="num earn">$6</td></tr>
+<tr data-q="now tv"><th scope="row"><span class="pn">NOW TV</span></th><td class="num gp">$25</td><td class="num earn">$3</td></tr>
+<tr data-q="now latino"><th scope="row"><span class="pn">NOW Latino</span></th><td class="num gp">$15</td><td class="num earn">$1</td></tr>
+</tbody></table>
+</section>
+<section class="card rise" style="--i:0" id="addons" data-title="add-ons &amp; equipment">
+<header class="card-h">
+<span class="card-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="13" width="18" height="7.5" rx="2.2"/><path d="M12 13V9.6"/><path d="M8.3 7.3a5.3 5.3 0 0 1 7.4 0"/><path d="M6.2 4.9a8.6 8.6 0 0 1 11.6 0"/><circle cx="7.2" cy="16.75" r=".9" fill="currentColor" stroke="none"/><circle cx="10.2" cy="16.75" r=".9" fill="currentColor" stroke="none"/></svg></span>
+<div class="card-tt"><h3 class="card-t">Add-Ons &amp; Equipment</h3><p class="card-n">6 products</p></div>
+<div class="card-max"><small>Up to</small><b>$7</b></div>
+</header>
+<table class="tbl">
+<thead><tr><th scope="col">Product</th><th scope="col" class="num">Store GP</th><th scope="col" class="num">You earn</th></tr></thead>
+<tbody>
+<tr data-q="xpro"><th scope="row"><span class="pn">xPro</span></th><td class="num gp">$75</td><td class="num earn">$7</td></tr>
+<tr data-q="mobile upgrade"><th scope="row"><span class="pn">Mobile Upgrade</span></th><td class="num gp">$85</td><td class="num earn">$5</td></tr>
+<tr data-q="xfi complete"><th scope="row"><span class="pn">xFi Complete</span></th><td class="num gp">$30</td><td class="num earn">$1</td></tr>
+<tr data-q="xumo"><th scope="row"><span class="pn">Xumo</span></th><td class="num gp">$15</td><td class="num earn">$1</td></tr>
+<tr data-q="xcam"><th scope="row"><span class="pn">xCam</span></th><td class="num gp">$10</td><td class="num earn">$1</td></tr>
+<tr data-q="wifi extenders"><th scope="row"><span class="pn">WiFi Extenders</span></th><td class="num gp">$10</td><td class="num earn">$1</td></tr>
+</tbody></table>
+</section>
+<section class="card rise" style="--i:1" id="protection" data-title="mobile protection">
+<header class="card-h">
+<span class="card-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8 19.5 5.8v5.6c0 4.6-3.1 8.4-7.5 9.8-4.4-1.4-7.5-5.2-7.5-9.8V5.8z"/><path d="m9 12 2.2 2.2L15.3 10"/></svg></span>
+<div class="card-tt"><h3 class="card-t">Mobile Protection</h3><p class="card-n">4 products</p></div>
+<div class="card-max"><small>Up to</small><b>$7</b></div>
+</header>
+<table class="tbl">
+<thead><tr><th scope="col">Product</th><th scope="col" class="num">Store GP</th><th scope="col" class="num">You earn</th></tr></thead>
+<tbody>
+<tr data-q="xmc tier 1 ($9)"><th scope="row"><span class="pn">XMC Tier 1 ($9)</span></th><td class="num gp">$18</td><td class="num earn">$3</td></tr>
+<tr data-q="xmc tier 2 ($15)"><th scope="row"><span class="pn">XMC Tier 2 ($15)</span></th><td class="num gp">$30</td><td class="num earn">$5</td></tr>
+<tr data-q="xmc tier 3 ($17)"><th scope="row"><span class="pn">XMC Tier 3 ($17)</span></th><td class="num gp">$34</td><td class="num earn">$6</td></tr>
+<tr data-q="xmc tier 4 ($19)"><th scope="row"><span class="pn">XMC Tier 4 ($19)</span></th><td class="num gp">$38</td><td class="num earn">$7</td></tr>
+</tbody></table>
+</section>
+<section class="card rise" style="--i:2" id="home" data-title="home, voice &amp; more">
+<header class="card-h">
+<span class="card-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.4V20h13V9.4"/><path d="M10 20v-5.2h4V20"/></svg></span>
+<div class="card-tt"><h3 class="card-t">Home, Voice &amp; More</h3><p class="card-n">5 products</p></div>
+<div class="card-max"><small>Up to</small><b>$37.50</b></div>
+</header>
+<table class="tbl">
+<thead><tr><th scope="col">Product</th><th scope="col" class="num">Store GP</th><th scope="col" class="num">You earn</th></tr></thead>
+<tbody>
+<tr class="feat" data-q="home security"><th scope="row"><svg class="star" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 .6l1.55 3.3 3.6.42-2.66 2.47.7 3.56L6 8.57 2.81 10.35l.7-3.56L.85 4.32l3.6-.42z"/></svg><span class="pn">Home Security</span></th><td class="num gp">$220</td><td class="num earn">$37.50</td></tr>
+<tr data-q="shield select"><th scope="row"><span class="pn">Shield Select</span></th><td class="num gp">$65</td><td class="num earn">$6.50</td></tr>
+<tr data-q="digital voice premier"><th scope="row"><span class="pn">Digital Voice Premier</span></th><td class="num gp">$25</td><td class="num earn">$1.75</td></tr>
+<tr data-q="video upgrade"><th scope="row"><span class="pn">Video Upgrade</span></th><td class="num gp">$50</td><td class="num earn">$2.50</td></tr>
+<tr data-q="hsd upgrade"><th scope="row"><span class="pn">HSD Upgrade</span></th><td class="num gp">$40</td><td class="num earn">$2</td></tr>
+</tbody></table>
+</section>
   </div>
-</div>
+  <p class="empty" id="empty">No products match that search.</p>
 
-<div class="printbar">
-  <button class="printbtn" type="button" onclick="window.print()">
-    <span class="ico">&#128424;</span> Print this sheet
-  </button>
-</div>
+  <section id="bonuses">
+    <div class="label">
+      <h2><span>Stack ’em up</span>Multi-play bonuses</h2>
+      <p>Bundle more lines of business, earn more</p>
+    </div>
+    <div class="ladder">
+<div class="bonus rise" style="--i:0"><div class="bonus-top"><span class="bonus-t">Double Play</span></div><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="bonus-v">+$4.50</span><div class="bonus-b"><span>2 lines of business</span><span>Store GP $30</span></div></div>
+<div class="bonus rise" style="--i:1"><div class="bonus-top"><span class="bonus-t">Triple Play</span></div><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="bonus-v">+$7.50</span><div class="bonus-b"><span>3 lines of business</span><span>Store GP $50</span></div></div>
+<div class="bonus rise" style="--i:2"><div class="bonus-top"><span class="bonus-t">Quad Play</span><span class="tag">Max bonus</span></div><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="bonus-v">+$10.50</span><div class="bonus-b"><span>4 lines of business</span><span>Store GP $70</span></div></div>
+    </div>
+    <div class="accy">
+      <div>
+        <div class="accy-k">Accessory compensation</div>
+        <div class="accy-t">Paid on every accessory you sell</div>
+      </div>
+      <div class="accy-r"><span class="accy-v">20%</span><span class="accy-o">of accessory MSRP</span></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="legend">
+      <span><b>Store GP</b> — gross profit, what the store earns on the sale.</span>
+      <span><b>You earn</b> — your commission, what you take home.</span>
+    </div>
+    <div class="sign">Now go cook.<small>C³ · Cook County Cooks</small></div>
+  </footer>
+</main>
+
+<button class="print" type="button" onclick="window.print()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8.5V3.5h10v5"/><rect x="3.5" y="8.5" width="17" height="8.5" rx="2"/><path d="M7 14h10v6.5H7z"/></svg>
+  Print sheet
+</button>
 
 <script>
 (function(){
-  var poster = document.getElementById('poster');
-  function fit(){
-    if(!poster) return;
-    // measure at natural size
-    poster.style.transform = 'none';
-    poster.style.marginBottom = '0px';
-    var pad = window.innerWidth < 640 ? 16 : 40;
-    var avail = window.innerWidth - pad;
-    var natW = poster.offsetWidth;
-    var natH = poster.offsetHeight;
-    var s = Math.min(1, avail / natW);
-    // center horizontally for every screen size (origin is top-left)
-    var tx = (window.innerWidth - natW * s) / 2;
-    poster.style.transform = 'translateX(' + tx + 'px) scale(' + s + ')';
-    // collapse the empty vertical space left by the scaled-down element
-    poster.style.marginBottom = (-(natH * (1 - s))) + 'px';
-  }
-  window.addEventListener('resize', fit);
-  window.addEventListener('orientationchange', fit);
-  window.addEventListener('load', fit);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  // run now in case load already fired
-  fit();
+  var q=document.getElementById('q'), grid=document.getElementById('grid'), empty=document.getElementById('empty');
+  if(!q||!grid) return;
+  var cards=[].slice.call(grid.querySelectorAll('.card'));
+  q.addEventListener('input',function(){
+    var t=q.value.trim().toLowerCase(), any=false;
+    cards.forEach(function(c){
+      var title=c.getAttribute('data-title'), hitTitle=t&&title.indexOf(t)>-1, shown=0;
+      [].forEach.call(c.querySelectorAll('tbody tr'),function(r){
+        var ok=!t||hitTitle||r.getAttribute('data-q').indexOf(t)>-1;
+        r.hidden=!ok; if(ok) shown++;
+      });
+      c.hidden=!shown; if(shown) any=true;
+    });
+    empty.classList.toggle('on',!any);
+  });
+  window.addEventListener('beforeprint',function(){ if(q.value){ q.value=''; q.dispatchEvent(new Event('input')); } });
 })();
 </script>
 </body>
